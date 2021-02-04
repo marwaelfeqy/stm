@@ -4,7 +4,7 @@
 
 int main()
 {
-	uint8_t device_add=0x57;
+	uint8_t device_add=0x56;
 	uint8_t buf[12];
 	
 	config_pin(GPIOA, 10, OUTPUT_MODE);

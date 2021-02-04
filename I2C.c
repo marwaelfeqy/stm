@@ -49,7 +49,41 @@ void i2c1_write(uint8_t device_add, uint8_t in_add, uint8_t data)
 
 	
 
+
 void i2c1_read(uint8_t device_add, uint8_t in_add, uint8_t *buf)
+{
+	uint32_t temp;
+	I2C1->CR1 |= I2C_CR1_ACK; //ENABLE ACKS
+	
+	
+	I2C1->CR1 |= (1<<8); 								//Generate start condition
+	while(!(I2C1->SR1&1)); 							//wait to generate start
+	
+	I2C1->DR = device_add;
+	while(!(I2C1->SR1 & I2C_SR1_ADDR)); //Wait-Receive address matched.
+	temp = I2C1->SR2 ; 									//CLEAR ADDR Flag
+	
+	I2C1->DR = in_add; 									//Internal addrsse to write to
+	while(!(I2C1->SR1 & I2C_SR1_TXE));	// Set when DR is empty in transmission.
+
+	
+	
+	I2C1->CR1 |= (1<<8); 								//Generate Restart condition
+	while(!(I2C1->SR1&1)); 							//wait to generate start
+	
+	I2C1->DR = device_add+1;
+	while(!(I2C1->SR1 & I2C_SR1_ADDR)); //Wait-Receive address matched.
+	temp = I2C1->SR2 ; 									//CLEAR ADDR Flag
+
+	while(!(I2C1->SR1 & I2C_SR1_RXNE));// received
+		
+	buf[0] = ((uint8_t)(0x0f&I2C1->DR));
+	
+	I2C1->CR1|=I2C_CR1_STOP;	
+	
+}	
+
+void i2c1_read_dma(uint8_t device_add, uint8_t in_add, uint8_t *buf)
 {
 	uint32_t temp;
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
