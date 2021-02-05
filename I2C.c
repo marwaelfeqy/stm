@@ -5,6 +5,7 @@ void i2c1_init()
 	//ENABLE CLK FOR PORTB & I2C
 	CLK_EN_I2C1();			
 	CLK_EN_GPIOB();
+	CLK_EN_ALT();
 	
 	
 	I2C1->CR2|=4; 				//APB1 FREQ
