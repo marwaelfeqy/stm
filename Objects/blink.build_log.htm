@@ -27,6 +27,11 @@ Project File Date:  02/04/2021
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'D:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'blink'
+main.c(23): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0;
+               ^
+1 warning generated.
+compiling main.c...
 I2C.c(20): warning: signed shift result (0xF0000000) sets the sign bit of the shift expression's type ('int') and becomes negative [-Wshift-sign-overflow]
         GPIOB->CRL |= (15<<(28));
                        ~~^ ~~~~
@@ -38,7 +43,7 @@ compiling I2C.c...
 linking...
 Program Size: Code=1108 RO-data=252 RW-data=0 ZI-data=1632  
 FromELF: creating hex file...
-".\Objects\blink.axf" - 0 Error(s), 2 Warning(s).
+".\Objects\blink.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -69,7 +74,7 @@ Package Vendor: Keil
       Source file:   Device\Source\system_stm32f10x.c
       Include file:  RTE_Driver\Config\RTE_Device.h
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

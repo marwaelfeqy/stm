@@ -154,7 +154,7 @@ Removing Unused input sections from the image.
     Removing i2c.o(.ARM.exidx.text.i2c1_init), (8 bytes).
     Removing i2c.o(.ARM.exidx.text.i2c1_write), (8 bytes).
     Removing i2c.o(.ARM.exidx.text.i2c1_read), (8 bytes).
-    Removing i2c.o(.text.i2c1_read_dma), (178 bytes).
+    Removing i2c.o(.text.i2c1_read_dma), (146 bytes).
     Removing i2c.o(.ARM.exidx.text.i2c1_read_dma), (8 bytes).
     Removing system_stm32f10x.o(.text), (0 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SystemInit), (8 bytes).
@@ -165,7 +165,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.data.SystemCoreClock), (4 bytes).
     Removing system_stm32f10x.o(.rodata.AHBPrescTable), (16 bytes).
 
-20 unused section(s) (total 400 bytes) removed from the image.
+20 unused section(s) (total 368 bytes) removed from the image.
 
 ==============================================================================
 
@@ -574,13 +574,13 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        104          0          0          0          0       1194   gpio.o
-       336          0          0          0          0       2613   i2c.o
+       336          0          0          0          0       2522   i2c.o
         58          0          0          0          0        879   main.o
         64         26        236          0       1536        804   startup_stm32f10x_md.o
        284          0          0          0          0       2739   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-       856         26        252          0       1536       8229   Object Totals
+       856         26        252          0       1536       8138   Object Totals
          0          0         16          0          0          0   (incl. Generated)
         10          0          0          0          0          0   (incl. Padding)
 
@@ -628,8 +628,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1108         42        252          0       1632       8589   Grand Totals
-      1108         42        252          0       1632       8589   ELF Image Totals
+      1108         42        252          0       1632       8498   Grand Totals
+      1108         42        252          0       1632       8498   ELF Image Totals
       1108         42        252          0          0          0   ROM Totals
 
 ==============================================================================
